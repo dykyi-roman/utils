@@ -1,0 +1,66 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.0",
+        "ext-json": "*",
+        "myclabs/php-enum": "^1.8",
+        "patrickschur/language-detection": "^5.1",
+        "symfony/console": "^5.3"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.5",
+        "phpunit/phpunit": "^9.5",
+        "object-calisthenics/phpcs-calisthenics-rules": "^3.9",
+        "squizlabs/php_codesniffer": "^3.5",
+        "symplify/coding-standard": "^9.2",
+        "symplify/easy-coding-standard": "^9.2",
+        "vimeo/psalm": "^4.6"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "src/tests/"
+        }
+    },
+    "scripts": {
+        "phpunit": "phpunit --coverage-clover=coverage.clover",
+        "psalm": "psalm",
+        "ecs": "ecs check ../../../code/src",
+        "phpcs": "phpcs --standard=PSR12 src/",
+        "analyzer": [
+            "@composer",
+            "@phpcs",
+            "@psalm",
+            "@ecs"
+        ],
+        "composer": [
+            "composer validate",
+            "composer unused"
+        ],
+        "test": [
+            "@phpunit"
+        ],
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "name": "utils/swear-words-detector",
+    "description": "Swear words detector"
+}
