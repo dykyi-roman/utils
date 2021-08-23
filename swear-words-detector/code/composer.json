@@ -8,7 +8,8 @@
         "ext-json": "*",
         "myclabs/php-enum": "^1.8",
         "patrickschur/language-detection": "^5.1",
-        "symfony/console": "^5.3"
+        "symfony/console": "^5.3",
+        "webmozart/assert": "^1.10"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.5",
